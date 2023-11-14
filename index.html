@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Able Tokeniser</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="tokeniser-container">
+      <h1>Able Tokeniser</h1>
+      <p class="callout">
+        Easily generate new tokens that match the Able token structure.
+      </p>
+
+      <div id="tokeniser">
+        <fieldset id="token-type">
+          <legend>Token type</legend>
+          <div>
+            <input
+              type="radio"
+              id="component"
+              name="tokenType"
+              value="component"
+              checked
+            />
+            <label for="component">Component</label>
+          </div>
+          <div>
+            <input type="radio" id="alias" name="tokenType" value="alias" />
+            <label for="alias">Alias</label>
+          </div>
+          <div>
+            <input type="radio" id="global" name="tokenType" value="global" />
+            <label for="global">Global</label>
+          </div>
+        </fieldset>
+
+        <div class="able-input global-hidden alias-hidden">
+          <label for="component-name">Component name</label>
+          <span id="component-name-help-text" class="help-text"
+            >For example, "Message Section" or "Action Button".</span
+          >
+          <input
+            id="component-name"
+            type="text"
+            aria-describedby="component-name-help-text"
+          />
+        </div>
+
+        <div class="able-input global-hidden alias-hidden">
+          <label for="element-name">Element name (optional)</label>
+          <span id="element-name-help-text" class="help-text"
+            >The specific element of the component you are targeting, e.g.
+            "Title", "Description", "Field".</span
+          >
+          <input
+            id="element-name"
+            type="text"
+            aria-describedby="element-name-help-text"
+          />
+        </div>
+
+        <div class="able-input">
+          <label for="token-category">Token category</label>
+          <select id="token-category" name="token-category">
+            <option value="">Select&hellip;</option>
+            <option value="colour">Colour</option>
+            <option value="size">Size</option>
+          </select>
+        </div>
+
+        <div class="able-input global-only-show conditional" style="display: none">
+          <label for="token-name-property"
+            >Token name or property (optional)</label
+          >
+          <span id="token-name-property-help-text" class="help-text"
+            >The name or property that the global token refers to, e.g. "Sky" or
+            "Viewport".</span
+          >
+          <input
+            id="token-name-property"
+            type="text"
+            aria-describedby="token-name-property-help-text"
+          />
+        </div>
+
+        <div class="able-input global-hidden">
+          <label for="token-concept">Token concept (optional)</label>
+          <span id="token-concept-help-text" class="help-text"
+            >For example, "Brand", "Utility" or "Interactive".</span
+          >
+          <input
+            id="token-concept"
+            type="text"
+            aria-describedby="token-concept-help-text"
+          />
+        </div>
+
+        <div class="able-input global-hidden">
+          <label for="token-property">Token property</label>
+          <select id="token-property" name="token-property">
+            <option value="">Select&hellip;</option>
+          </select>
+        </div>
+
+        <div
+          class="able-input global-hidden conditional"
+          id="token-other-property"
+          style="display: none"
+        >
+          <label for="other-property">Other property</label>
+          <input
+            id="other-property"
+            type="text"
+            aria-describedby="other-property-help-text"
+          />
+        </div>
+
+        <div
+          class="able-input conditional"
+          id="size-specs"
+          style="display: none"
+        >
+          <label for="size-property"><span id="sizing-type"></span> type</label>
+          <select id="size-property" name="size-property">
+            <option value="">Select&hellip;</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="able-input global-hidden">
+        <label for="variant">Variant (optional)</label>
+        <span id="variant-help-text" class="help-text"
+          >For example, "Medium Emphasis", "Destructive", "Secondary".</span
+        >
+        <input id="variant" type="text" aria-describedby="variant-help-text" />
+      </div>
+
+      <div class="able-input global-hidden">
+        <label for="state">State (optional)</label>
+        <span id="state-help-text" class="help-text"
+          >For example, "Hover", "Pressed", "Active".</span
+        >
+        <input id="state" type="text" aria-describedby="state-help-text" />
+      </div>
+
+      <div
+        class="able-input conditional"
+        id="token-scale"
+        style="display: none"
+      >
+        <label for="scale">Scale (optional)</label>
+        <span id="scale-help-text" class="help-text"
+          >For example, "1x" or "2x".</span
+        >
+        <input id="scale" type="text" aria-describedby="scale-help-text" />
+      </div>
+    </div>
+    <div id="result-container">
+      <div id="result-inner-container">
+        <h2>Token output</h2>
+        <div id="result">
+          <p id="pre-message">Fill in the fields to view your new token.</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
